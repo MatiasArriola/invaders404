@@ -42,7 +42,7 @@ var Invaders404 = Class.extend({
 		/* End FPS Info */
 	},
 	initCanvas : function() {
-		this.canvas = document.getElementById('canvas');
+		this.canvas = document.getElementById('canvas404');
 		this.ctx = this.canvas.getContext('2d');
 	},
 	start : function() {
