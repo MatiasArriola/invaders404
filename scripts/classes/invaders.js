@@ -221,5 +221,18 @@ var Invaders404 = Class.extend({
 				callback();
 			}
 		}, this.loopInterval);
+	},
+	goFullscreen : function(){
+		var canvas = this.canvas,
+			requestFullscreen = canvas.requestFullscreen || canvas.mozRequestFullScreen || canvas.webkitRequestFullScreen;
+		if(requestFullscreen){
+			requestFullscreen.call(canvas);
+		}
+	},
+	exitFullscreen : function(){
+		var cancelFullscreen = document.cancelFullscreen || document.mozCancelFullScreen || document.webkitCancelFullScreen;
+		if(cancelFullscreen){
+			cancelFullscreen.call(document);
+		}
 	}
 });

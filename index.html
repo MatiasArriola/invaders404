@@ -4,7 +4,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>FernetJS Invaders</title>
-        
         <!--
         <script type="text/javascript" src="scripts/classes/class.js"></script>
         <script type="text/javascript" src="scripts/classes/static.js"></script>
@@ -27,6 +26,13 @@
         	window.addEventListener('load', function(){
         		initInvaders404();
         	});
+
+                document.documentElement.addEventListener('keypress', function(ev){
+                        var keycd = ev.which || ev.keyCode;
+                        if(ev.ctrlKey && [10, 13].indexOf(keycd) !== -1 && invaders){
+                                invaders.goFullscreen();
+                        }
+                });
         	
         	function play (){
         		var splash = document.getElementById('splash');
@@ -54,6 +60,7 @@
         		invaders = new Invaders404({
         			onLoose: function(){
         				showSplash();
+                                        window.invaders.exitFullscreen();
         			},
         			onWin: function(){
         				showSplash();
@@ -65,9 +72,9 @@
         </script>
         <style type="text/css">
         	.ctn {
-        		width: 600px;
-        		height: 400px;
-        		position: relative;
+                       width: 600px;
+                       height: 400px;
+        	       position: relative;
         	}    
         	    	
         	#splash {
@@ -100,6 +107,24 @@
 				border: 1px solid silver;
 				background-color:#000;
         	}
+                
+                #canvas:fullscreen {
+                        width: 100% !important;
+                        height: 100% !important;
+                        display: block;
+                }
+
+                #canvas:-webkit-full-screen {
+                        width: 100% !important;
+                        height: 100% !important;
+                        display: block;
+                }
+
+                #canvas:-moz-full-screen {
+                        width: 100% !important;
+                        height: 100% !important;
+                        display: block;
+                }
         </style>
     </head>
     <body>
