@@ -8,7 +8,7 @@ var Ship = DrawableElement.extend({
 	    
 	    this.maxMove = {
 			left: options.maxMoveLeft,
-			right: options.maxMoveRight,
+			right: options.maxMoveRight
 		};
 		
 		this.onShipHit = options.onShipHit || function(){};
